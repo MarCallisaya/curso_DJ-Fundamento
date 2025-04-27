@@ -1,0 +1,17 @@
+{% extends "mi_aplicacion/base.html" %}
+{% block title %}Saludo ✌{% endblock %}
+
+{% block content %}
+
+    <h1>MI PRIMERA PAGINA EN HTML CON DJANGO - TEMPLATE</h1>
+    <!-- <p>Hola {{nombre | lower}}</p> -->
+    <p>Hola {{nombre|upper}}</p>
+    <p>Fecha: {{fecha|date:"d-M-Y"}}</p>
+    <!--<p>Fecha: {{fecha|date:"d/m/Y"}}</p>-->
+
+    {% if edad >= 18 %}
+    <p> {{nombre}} Es mayor de edad {{edad}}</p>
+    {% else %}
+    <p>{{nombre}} Es menor de edad {{edad}}</p>
+    {% endif %}
+{% endblock  %}

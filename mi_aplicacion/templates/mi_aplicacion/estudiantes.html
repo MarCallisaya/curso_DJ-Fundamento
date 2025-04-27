@@ -1,0 +1,27 @@
+{% extends "mi_aplicacion/plantilla.html" %}
+
+{% block title %}Lista de Estudiantes 📋{% endblock %}
+
+{% block content %}
+    <h2>Lista de Estudiantes</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>CI</th>
+                <th>Celular</th>
+                <th>Fecha de Nacimiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+            <tr>
+                <td>{{ estudiante.nombre }}</td>
+                <td>{{ estudiante.ci }}</td>
+                <td>{{ estudiante.celular }}</td>
+                <td>{{ estudiante.fecha_nacimiento }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
