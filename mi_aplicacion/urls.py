@@ -10,8 +10,9 @@ urlpatterns = [
     path('productos/',views.lista_productos),
     path('',views.inicio),
     path('lista/',views.lista_estudiantes),
-    path('contactos/',views.contactos,name='contactos'),
+    path('contactos/',views.contactos,name='contactos'), #enrutar mediante botones menus name=contactos
     path('students/',views.students,name='students'),
+    path('curso/<int:curso_id>/',views.detalle_curso,name='detalle_curso'),
     
 
 

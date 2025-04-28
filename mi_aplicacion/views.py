@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse #Importando http para renderisar respuesta sin HTML
 from datetime import datetime
+from .models import Curso
 
 # Create your views here.
 #Funciones 
@@ -62,3 +63,12 @@ def contactos(request):
 
 def students(request):
     return render(request,'mi_aplicacion/students.html')
+
+def detalle_curso(request, curso_id):
+    #vamos a hacer consultas
+    #obtenemos el curso por su ID, Si no existe devolvera un ERROR 404
+    curso = get_object_or_404(Curso, id=curso_id) #Dame un objeto y si no devuelve un 404
+
+    #PRIMERA CONSULTA ORM
+    estudiantes = curso.estudiantes.all()
+    return render(request,'mi_aplicacion/detalle_curso.html',{'curso':curso,'estudiantes':estudiantes})
