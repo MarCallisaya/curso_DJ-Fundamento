@@ -8,8 +8,11 @@ urlpatterns = [
     path('s/<str:nombre>/',views.saludar), #Registrando una vista con parametros
     path('plantilla/<str:nombre>/',views.usando_plantilla),
     path('productos/',views.lista_productos),
-    #path('',views.inicio),
-    path('lista/',views.lista_estudiantes)
+    path('',views.inicio),
+    path('lista/',views.lista_estudiantes),
+    path('contactos/',views.contactos,name='contactos'),
+    path('students/',views.students,name='students'),
+    
 
 
 ]

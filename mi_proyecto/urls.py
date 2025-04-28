@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include #Importando include, include tambien es parte de la libreria urls, por ello solo la coma
 #from django.urls import include
 # from mi_aplicacion import views #Importando nuestra vista que esta dentro de mi_aplicacion
-
+from . import views 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('hola/',views.hola_mundo), #registrando la ruta para la vista Hola mundo
@@ -27,4 +27,5 @@ urlpatterns = [
     path('mi_app/',include('mi_aplicacion.urls')), # Enrutando las carpetas (mi_aplicacion) aqui ya estamos agregando las urls propias de la carpeta
     #aqui registraremos las urls de otras aplicaciones 
     path('otra_app/',include('otra_aplicacion.urls')),
+    path('',views.inicio,name='ini'),
 ]

@@ -56,3 +56,9 @@ def lista_estudiantes(request):
         {'nombre': 'Natalia Ruiz', 'ci': '88990011', 'celular': '70999988', 'fecha_nacimiento': '2005-06-14'},
     ]
     return render(request, 'mi_aplicacion/estudiantes.html', {"estudiantes": estudiantes})
+
+def contactos(request):
+    return render(request,'mi_aplicacion/contactos.html')
+
+def students(request):
+    return render(request,'mi_aplicacion/students.html')
