@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse #Importando http para renderisar respuesta sin HTML
 from datetime import datetime
 from .models import Curso
+from .forms import ContactoForm
 
 # Create your views here.
 #Funciones 
@@ -72,3 +73,29 @@ def detalle_curso(request, curso_id):
     #PRIMERA CONSULTA ORM
     estudiantes = curso.estudiantes.all()
     return render(request,'mi_aplicacion/detalle_curso.html',{'curso':curso,'estudiantes':estudiantes})
+
+# def contactos(request):
+#     if request.method == 'POST':
+#         form = ContactoForm(request.POST)
+#         if form.is_valid():
+#             nombre = form.changed_data['nombre']
+#             correo = form.changed_data['correo']
+#             mensaje = form.changed_data['mensaje']
+#             return render (request,'mi_aplicacion/gracias.html')
+#         else:
+#             form = ContactoForm()
+        
+#         return render(request,'mi_aplicacion/contactos.html',{'form':form})
+    
+def contactos(request):
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']  # Nota: es cleaned_data, no changed_data
+            correo = form.cleaned_data['correo']
+            mensaje = form.cleaned_data['mensaje']
+            return render(request, 'mi_aplicacion/gracias.html')
+    else:
+        form = ContactoForm()
+    
+    return render(request, 'mi_aplicacion/contactos.html', {'form': form})
